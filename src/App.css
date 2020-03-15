@@ -1,0 +1,49 @@
+nav.navbar{
+    box-shadow: -3px 3px 4px 3px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+body{
+    overflow-x: hidden;
+    background-color:#d9d9d9;
+}
+
+
+div.content{
+    margin-left: 1%;
+    
+}
+
+input.login{
+    box-shadow: -3px 3px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+div.upcart{
+    background-color: white;
+    margin-left: -5%;
+    height: 9%;
+    width: 110%;
+}
+
+img.card-img{
+    border-radius: 10px 20px;
+    box-shadow: -3px 3px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+button.edit{
+    margin-top: 25%;
+    margin-left: -20%;
+    font-size: 14px;
+}
+
+button.delete{
+    margin-top: 8%;
+    margin-left: 0;
+    font-size: 14px;
+}
+
+i.material-icons{
+    color: #f2f2f2;
+    margin-left: 5%;
+    margin-top: 2.5%;
+}
