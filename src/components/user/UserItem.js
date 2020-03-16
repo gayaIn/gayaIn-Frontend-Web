@@ -22,12 +22,22 @@ const UserItem = ({ user, onSelectItemUserEdit, onSelectUserDelete }) => {
         <td>{user.created_at}</td>
 
         <td>
-          <Button variant='warning' size='sm' onClick={onClickEdit}>
-            Edit
+          <Button
+            className='Button'
+            variant='warning'
+            size='sm'
+            onClick={onClickEdit}
+          >
+            <i className='fas fa-edit'></i>
           </Button>{' '}
           -{' '}
-          <Button variant='danger' size='sm' onClick={onClickDelete}>
-            Delete
+          <Button
+            className='Button'
+            variant='danger'
+            size='sm'
+            onClick={onClickDelete}
+          >
+            <i className='fas fa-trash'></i>
           </Button>
         </td>
       </tr>

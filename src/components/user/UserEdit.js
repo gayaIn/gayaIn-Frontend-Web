@@ -25,7 +25,8 @@ class UserEdit extends Component {
       username: user.username,
       password: user.password,
       alamat: user.alamat,
-      provinsi: user.kota,
+      provinsi: user.provinsi,
+      kota: user.kota,
       status: user.status,
     });
   };
@@ -36,7 +37,8 @@ class UserEdit extends Component {
   };
   onSubmit = async e => {
     e.preventDefault();
-    await this.props.dispatch(editUser(this.state));
+    const userId = this.props.user.id;
+    await this.props.dispatch(editUser(userId, this.state));
     await this.props.onHide();
   };
   render() {
@@ -47,7 +49,7 @@ class UserEdit extends Component {
           <p>Add Book</p>
         </Modal.Header>
         <Modal.Body>
-          <Form onSubmit={this.onSubmit}>
+          <Form>
             <div className='form-group'>
               <input
                 type='text'
@@ -55,11 +57,8 @@ class UserEdit extends Component {
                 placeholder='Enter name'
                 name='name'
                 onChange={this.onChange}
-                id='validationDefault02'
-                required
                 value={this.state.name}
               />
-              <div class='invalid-feedback'>Please choose a username.</div>
             </div>
             <div className='form-group'>
               <input
@@ -69,7 +68,6 @@ class UserEdit extends Component {
                 name='email'
                 onChange={this.onChange}
                 value={this.state.email}
-                required
               />
             </div>
             <div className='form-group'>
@@ -80,7 +78,6 @@ class UserEdit extends Component {
                 name='username'
                 onChange={this.onChange}
                 value={this.state.username}
-                required
               />
             </div>
             <div className='form-group'>
@@ -90,7 +87,6 @@ class UserEdit extends Component {
                 placeholder='Enter password'
                 name='password'
                 onChange={this.onChange}
-                required
               />
             </div>
             <div className='form-group'>
@@ -101,46 +97,38 @@ class UserEdit extends Component {
                 name='alamat'
                 onChange={this.onChange}
                 value={this.state.alamat}
-                required
               />
             </div>
-            <Form.Group controlId='exampleForm.ControlSelect1'>
-              <Form.Label>Provinsi</Form.Label>
-              <Form.Control
-                as='select'
-                name='category_id'
+            <div className='form-group'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Enter address'
+                name='provinsi'
                 onChange={this.onChange}
-              >
-                <option value={'jakarta'}>Jakarta</option>
-                <option value={'jawa_barat'}>Jawa Barat</option>
-                <option value={'jawa_tengah'}>Jawa Tengah</option>
-                <option value={'jawa_tengah'}>Sulawesi</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId='exampleForm.ControlSelect1'>
-              <Form.Label>Kota</Form.Label>
-              <Form.Control
-                as='select'
-                name='category_id'
+                value={this.state.provinsi}
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Enter address'
+                name='kota'
                 onChange={this.onChange}
-              >
-                <option value={'jakarta'}>Jakarta</option>
-                <option value={'bogor'}>Bogor</option>
-                <option value={'tangerang'}>Tangerang</option>
-                <option value={'bekasi'}>Bekasi</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId='exampleForm.ControlSelect1'>
-              <Form.Label>Category</Form.Label>
-              <Form.Control
-                as='select'
-                name='category_id'
+                value={this.state.kota}
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Enter address'
+                name='status'
                 onChange={this.onChange}
-              >
-                <option value={1}>Admin</option>
-                <option value={2}>Cashier</option>
-              </Form.Control>
-            </Form.Group>
+                value={this.state.status}
+              />
+            </div>
             <button
               onClick={this.onSubmit}
               type='submit'

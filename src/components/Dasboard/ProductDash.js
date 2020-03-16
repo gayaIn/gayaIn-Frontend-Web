@@ -55,36 +55,23 @@ class ProductDash extends Component {
     const { products, categorys } = this.props;
     return (
       <Row>
-        <Col sm='1'>
-          <div>
-            <button
+        <NewNavbar onClick={this.onLogout.bind(this)} onhidden={true} />
+        <NewModals categorys={categorys} />
+        <EditModals idProduct={this.state.idProduct} categorys={categorys} />
+        <DeleteModal idProduct={this.state.idProduct} />
+        <Row style={{ marginTop: '20px', marginBottom: '20px' }}></Row>
+        <Container>
+          <div className='Button mt-3'>
+            <Button
               type='button'
-              className='add btn btn-outline-light'
+              className=' btn btn-primary btn-outline-light'
               data-toggle='modal'
               data-target='#exampleModal'
-              style={{
-                backgroundColor: 'transparent',
-                border: '0px solid black',
-                marginLeft: '7rem',
-                marginTop: '7rem',
-                possition: 'fixed',
-              }}
             >
-              <i className='material-icons' style={{ color: 'grey' }}>
-                {' '}
-                add_to_queue
-              </i>
-            </button>
+              Add
+            </Button>
           </div>
-          <div></div>
-        </Col>
-        <Container>
-          <NewNavbar onClick={this.onLogout.bind(this)} onhidden={true} />
-          <NewModals categorys={categorys} />
-          <EditModals idProduct={this.state.idProduct} categorys={categorys} />
-          <DeleteModal idProduct={this.state.idProduct} />
-          <Row style={{ marginTop: '20px', marginBottom: '20px' }}></Row>
-          <Table striped bordered hover>
+          <Table className='mt-3'>
             <thead>
               <tr>
                 <th>id</th>
@@ -105,6 +92,7 @@ class ProductDash extends Component {
                   <td>{product.stock}</td>
                   <td>
                     <Button
+                      className='Button'
                       onClick={this.onClickHandler}
                       data-toggle='modal'
                       data-target='#editModal'
@@ -113,17 +101,18 @@ class ProductDash extends Component {
                       variant='warning'
                       product={this.state.selectProduct}
                     >
-                      Edit
+                      <i className='fas fa-edit'></i>
                     </Button>{' '}
                     -
                     <Button
+                      className='Button'
                       onClick={this.onClickHandler}
                       data-toggle='modal'
                       data-target='#deleteModal'
                       variant='danger'
                       value={product.id}
                     >
-                      Delete
+                      <i class='fas fa-trash'></i>
                     </Button>
                   </td>
                 </tr>

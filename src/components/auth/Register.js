@@ -33,7 +33,7 @@ class Register extends Component {
   onSubmit = async e => {
     e.preventDefault();
     await this.props.dispatch(postUser(this.state));
-    this.props.history.push('./Login.js');
+    this.props.history.push('/login');
   };
 
   render() {
@@ -53,10 +53,8 @@ class Register extends Component {
                     placeholder='Enter name'
                     name='name'
                     onChange={this.onChange}
-                    id='validationDefault02'
                     required
                   />
-                  <div class='invalid-feedback'>Please choose a username.</div>
                 </div>
                 <div className='form-group'>
                   <input
@@ -98,32 +96,26 @@ class Register extends Component {
                     required
                   />
                 </div>
-                <Form.Group controlId='exampleForm.ControlSelect1'>
-                  <Form.Label>Provinsi</Form.Label>
-                  <Form.Control
-                    as='select'
-                    name='category_id'
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    className='form-control'
+                    placeholder='Enter address'
+                    name='provinsi'
                     onChange={this.onChange}
-                  >
-                    <option value={'jakarta'}>Jakarta</option>
-                    <option value={'jawa_barat'}>Jawa Barat</option>
-                    <option value={'jawa_tengah'}>Jawa Tengah</option>
-                    <option value={'jawa_tengah'}>Sulawesi</option>
-                  </Form.Control>
-                </Form.Group>
-                <Form.Group controlId='exampleForm.ControlSelect1'>
-                  <Form.Label>Kota</Form.Label>
-                  <Form.Control
-                    as='select'
-                    name='category_id'
+                    required
+                  />
+                </div>
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    className='form-control'
+                    placeholder='Enter address'
+                    name='kota'
                     onChange={this.onChange}
-                  >
-                    <option value={'jakarta'}>Jakarta</option>
-                    <option value={'bogor'}>Bogor</option>
-                    <option value={'tangerang'}>Tangerang</option>
-                    <option value={'bekasi'}>Bekasi</option>
-                  </Form.Control>
-                </Form.Group>
+                    required
+                  />
+                </div>
                 <button
                   onClick={this.onSubmit}
                   type='submit'
