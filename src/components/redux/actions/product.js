@@ -1,13 +1,18 @@
 import axios from 'axios';
 require('dotenv').config();
 
-export const getProducts = (activepage, limit) => {
-  const page = activepage || 1;
+export const getProducts = data => {
+  const limit = 6;
+  const page = data.activePage || 1;
+  const category = data.activeCategory || '';
+  const name = data.searchName || '';
+  const sortBy = data.sort || 'id';
+  const sort = data.by || 'ASC';
   return {
-    type: 'GET_PRODUCT',
+    type: 'GET_PRODUCTS',
     payload: axios({
       method: 'GET',
-      url: `http://localhost:4444/product?page=${page}`,
+      url: `http://localhost:4444/product/?limit=${limit}&page=${page}&category=${category}&name=${name}&sortBy=${sortBy}&sort=${sort}`,
     }),
   };
 };

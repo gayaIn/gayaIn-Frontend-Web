@@ -36,6 +36,19 @@ button.edit {
   margin-left: -20%;
   font-size: 14px;
 }
+.loginContainer {
+  background-color: bisque;
+  margin-top: 150px;
+  height: 500px;
+  border-radius: 1rem;
+  padding-top: 100px;
+}
+.loginCard {
+  border-radius: 1rem;
+  margin-left: 400px;
+  height: 300px;
+  width: 350px;
+}
 .search {
   border-radius: 0.5rem;
 }

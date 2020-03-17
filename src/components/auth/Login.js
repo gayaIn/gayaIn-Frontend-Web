@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, withRouter } from 'react-router-dom';
+require('dotenv').config();
 
 class Login extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Login extends Component {
     // console.log('hahaa');
 
     axios
-      .post('http://localhost:4444/user/login', this.state)
+      .post(`${REACT_APP_URL}/user/login`, this.state)
       .then(res => {
         console.log(res.data);
         localStorage.setItem('token', res.data.token);
@@ -44,50 +45,50 @@ class Login extends Component {
 
   render() {
     return (
-      <div
-        className='container'
-        style={{ marginTop: '150px', backgroundColor: 'aqua' }}
-      >
-        <div className='card'>
-          <div className='row justify-content-md-center'>
-            <div className='col-md-8 my-4'>
-              <form>
-                <div className='form-group'>
-                  <input
-                    type='email'
-                    className='form-control'
-                    placeholder='Enter email'
-                    name='email'
-                    onChange={this.onChange}
-                    required
-                  />
-                </div>
-                <div className='form-group'>
-                  <label>Password</label>
-                  <input
-                    type='password'
-                    className='form-control'
-                    placeholder='Enter password'
-                    name='password'
-                    onChange={this.onChange}
-                  />
-                </div>
-                <button
-                  onClick={this.onSubmit}
-                  type='submit'
-                  className='btn btn-primary'
-                >
-                  Login
-                </button>
-                ||
-                <Link className='btn btn-warning' to={'/Register'}>
-                  Register
-                </Link>
-              </form>
+      <React.Fragment>
+        <div></div>
+        <div className='loginContainer container'>
+          <div className='loginCard card'>
+            <div className='row justify-content-md-center'>
+              <div className='col-md-8 my-4'>
+                <form className='mt-5'>
+                  <div className='form-group'>
+                    <input
+                      type='email'
+                      className='form-control'
+                      placeholder='Enter email'
+                      name='email'
+                      onChange={this.onChange}
+                      required
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <label>Password</label>
+                    <input
+                      type='password'
+                      className='form-control'
+                      placeholder='Enter password'
+                      name='password'
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <button
+                    onClick={this.onSubmit}
+                    type='submit'
+                    className='btn btn-primary'
+                  >
+                    Login
+                  </button>
+                  ||
+                  <Link className='btn btn-warning' to={'/Register'}>
+                    Register
+                  </Link>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

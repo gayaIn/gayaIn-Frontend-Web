@@ -31,6 +31,7 @@ class UserEdit extends Component {
     });
   };
   onChange = e => {
+    console.log(e);
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -49,93 +50,87 @@ class UserEdit extends Component {
           <p>Add Book</p>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <div className='form-group'>
-              <input
+          <Form onSubmit={this.onSubmit}>
+            <Form.Group>
+              <Form.Control
                 type='text'
-                className='form-control'
                 placeholder='Enter name'
                 name='name'
                 onChange={this.onChange}
                 value={this.state.name}
               />
-            </div>
-            <div className='form-group'>
-              <input
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
                 type='email'
-                className='form-control'
                 placeholder='Enter email'
                 name='email'
                 onChange={this.onChange}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
+                type='username'
+                placeholder='Enter username'
+                onChange={this.onChange}
                 value={this.state.email}
               />
-            </div>
-            <div className='form-group'>
-              <input
-                type='text'
-                className='form-control'
-                placeholder='Enter username'
-                name='username'
-                onChange={this.onChange}
-                value={this.state.username}
-              />
-            </div>
-            <div className='form-group'>
-              <input
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
                 type='password'
-                className='form-control'
                 placeholder='Enter password'
                 name='password'
                 onChange={this.onChange}
               />
-            </div>
-            <div className='form-group'>
-              <input
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
                 type='text'
-                className='form-control'
                 placeholder='Enter address'
                 name='alamat'
                 onChange={this.onChange}
-                value={this.state.alamat}
+                value={this.state.username}
               />
-            </div>
-            <div className='form-group'>
-              <input
-                type='text'
-                className='form-control'
-                placeholder='Enter address'
+            </Form.Group>
+            <Form.Group controlId='exampleForm.ControlSelect1'>
+              <Form.Label>Province</Form.Label>
+              <Form.Control
+                as='select'
                 name='provinsi'
                 onChange={this.onChange}
-                value={this.state.provinsi}
-              />
-            </div>
-            <div className='form-group'>
-              <input
+              >
+                <option value='jakarta'>jakarta</option>
+                <option value='bogor'>Pc</option>
+                <option value={3}>Smartwatch</option>
+                <option value={4}>Camera</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId='exampleForm.ControlSelect1'>
+              <Form.Label>City</Form.Label>
+              <Form.Control as='select' name='kota' onChange={this.onChange}>
+                <option onChange={this.onChange} value={'bogor'}>
+                  jakarta
+                </option>
+                <option value={2}>Pc</option>
+                <option value={3}>Smartwatch</option>
+                <option value={4}>Camera</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
                 type='text'
-                className='form-control'
-                placeholder='Enter address'
-                name='kota'
-                onChange={this.onChange}
-                value={this.state.kota}
-              />
-            </div>
-            <div className='form-group'>
-              <input
-                type='text'
-                className='form-control'
-                placeholder='Enter address'
+                placeholder='Enter status'
                 name='status'
                 onChange={this.onChange}
-                value={this.state.status}
+                value={this.state.name}
               />
-            </div>
-            <button
-              onClick={this.onSubmit}
-              type='submit'
-              className='btn btn-primary'
-            >
-              Edit
-            </button>
+            </Form.Group>
+            <Modal.Footer>
+              <Button variant='primary' type='submit'>
+                Save Changes
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
       </Modal>

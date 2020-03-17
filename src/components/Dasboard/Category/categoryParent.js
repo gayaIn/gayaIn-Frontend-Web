@@ -48,7 +48,7 @@ class CategoryParent extends Component {
               Add
             </Button>
           </div>
-          <Table className='mt-3'>
+          <Table bordered hover className='mt-3'>
             <thead>
               <tr>
                 <th>id</th>

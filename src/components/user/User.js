@@ -107,7 +107,7 @@ class User extends Component {
               </Button>
             </Col>
           </Row>
-          <Table>
+          <Table bordered hover>
             <thead>
               <tr>
                 <th scope='col'>#</th>
