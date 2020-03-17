@@ -1,5 +1,6 @@
 import axios from 'axios';
 import 'dotenv/config';
+
 export const getCategory = () => {
   return {
     type: 'GET_CATEGORY',

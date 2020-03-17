@@ -18,6 +18,23 @@ class EditModals extends Component {
     });
   };
 
+  componentWillReceiveProps({ selectProduct }) {
+    this.onSetValue(selectProduct);
+  }
+
+  onSetValue = selectProduct => {
+    this.setState({
+      name: selectProduct.name,
+      image: selectProduct.image,
+      category: selectProduct.category,
+      brand: selectProduct.brand,
+      additional: selectProduct.additional_category,
+      stock: selectProduct.stock,
+      price: selectProduct.price,
+      promo: selectProduct.promo_id,
+    });
+  };
+
   onChangeHandler = e => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -30,7 +47,7 @@ class EditModals extends Component {
 
     const propsId = this.props.idProduct;
     let data = new FormData();
-    data.append ('id', propsId)
+    data.append('id', propsId);
     data.append('name', this.state.name);
     data.append('price', this.state.price);
     data.append('category', this.state.category);
@@ -46,7 +63,7 @@ class EditModals extends Component {
   };
 
   render() {
-    const { idProduct, categorys } = this.props;
+    const { idProduct, categorys, selectProduct } = this.props;
     console.log(idProduct);
     return (
       <div>

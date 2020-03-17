@@ -15,9 +15,9 @@ class NewNavbar extends Component {
     this.setState({
       category: event.target.value,
     });
-    this.props.history.push(
-      `/newHome?category=${event.target.value}&name=${this.state.name}`
-    );
+    // this.props.history.push(
+    //   `/newHome?category=${event.target.value}&name=${this.state.name}`
+    // );
     this.props.dispatch(filterProduct(event.target.value, this.state.name));
   };
 
@@ -29,9 +29,9 @@ class NewNavbar extends Component {
     this.setState({
       name: event.target.value,
     });
-    this.props.history.push(
-      `/newHome?category=${this.state.category}&name=${event.target.value}`
-    );
+    // this.props.history.push(
+    //   `/?category=${this.state.category}&name=${event.target.value}`
+    // );
     this.props.dispatch(filterProduct(this.state.category, event.target.value));
   };
 
@@ -88,7 +88,7 @@ class NewNavbar extends Component {
                 aria-haspopup='true'
                 aria-expanded='false'
               >
-                Dashboard
+                <i class='fa fa-fw fa-cogs'></i>
               </Link>
               <div className='dropdown-menu' aria-labelledby='navbarDropdown'>
                 <span className='dropdown-item'>
@@ -111,8 +111,8 @@ class NewNavbar extends Component {
     return (
       <Fragment>
         <nav
-          className='navbar sticky-top navbar-expand-lg navbar-light bg-light'
-          style={{ width: '65rem', height: '63px' }}
+          className='navbarTop navbar sticky-top navbar-expand-lg navbar-light bg-ligh'
+          style={{ width: '100rem', height: '63px' }}
         >
           <span className='navbar-brand'>FamiRest</span>
           <button
@@ -129,29 +129,40 @@ class NewNavbar extends Component {
           <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
             <div className='navbar-nav'>
               <span hidden={this.state.onhiden}>
-                <Link to='/newHome' className='nav-item nav-link'>
-                  Home
+                <Link to='/' className='nav-item nav-link'>
+                  <span className='fa fa-fw fa-home' />
                 </Link>
               </span>
               <ValidasiForm />
-              <span>
-                <Link
-                  to='/login'
-                  className='nav-item nav-link'
-                  onClick={onClick}
-                >
-                  Logout
-                </Link>
-              </span>
+
               <span>
                 <Link
                   to='/user'
                   className='nav-item nav-link'
                   onClick={onClick}
                 >
-                  User
+                  <i className='fas fa-user-cog'></i>
                 </Link>
               </span>
+              <span>
+                <Link
+                  to='/login'
+                  className='nav-item nav-link'
+                  onClick={onClick}
+                >
+                  <i className='fas fa-sign-out-alt'></i>
+                </Link>
+              </span>
+              <div className='search form-inline'>
+                <input
+                  onChange={this.searchProduct}
+                  value={this.state.name}
+                  className='search form-control mr-sm-2'
+                  type='search'
+                  placeholder='Search'
+                  aria-label='Search'
+                />
+              </div>
               <div
                 className='input-group mb-3'
                 style={{
@@ -187,17 +198,6 @@ class NewNavbar extends Component {
                     </option>
                   ))}
                 </select>
-                <div className='form-inline my-2 my-lg-0'>
-                  <input
-                    hidden={onhidden}
-                    onChange={this.searchProduct}
-                    value={this.state.name}
-                    className='form-control mr-sm-2'
-                    type='search'
-                    placeholder='Search'
-                    aria-label='Search'
-                  />
-                </div>
               </div>
             </div>
           </div>

@@ -25,18 +25,21 @@ class UserEdit extends Component {
       username: user.username,
       password: user.password,
       alamat: user.alamat,
-      provinsi: user.kota,
+      provinsi: user.provinsi,
+      kota: user.kota,
       status: user.status,
     });
   };
   onChange = e => {
+    console.log(e);
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
   onSubmit = async e => {
     e.preventDefault();
-    await this.props.dispatch(editUser(this.state));
+    const userId = this.props.user.id;
+    await this.props.dispatch(editUser(userId, this.state));
     await this.props.onHide();
   };
   render() {
@@ -48,106 +51,86 @@ class UserEdit extends Component {
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={this.onSubmit}>
-            <div className='form-group'>
-              <input
+            <Form.Group>
+              <Form.Control
                 type='text'
-                className='form-control'
                 placeholder='Enter name'
                 name='name'
                 onChange={this.onChange}
-                id='validationDefault02'
-                required
                 value={this.state.name}
               />
-              <div class='invalid-feedback'>Please choose a username.</div>
-            </div>
-            <div className='form-group'>
-              <input
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
                 type='email'
-                className='form-control'
                 placeholder='Enter email'
                 name='email'
                 onChange={this.onChange}
-                value={this.state.email}
-                required
               />
-            </div>
-            <div className='form-group'>
-              <input
-                type='text'
-                className='form-control'
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
+                type='username'
                 placeholder='Enter username'
-                name='username'
                 onChange={this.onChange}
-                value={this.state.username}
-                required
+                value={this.state.email}
               />
-            </div>
-            <div className='form-group'>
-              <input
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
                 type='password'
-                className='form-control'
                 placeholder='Enter password'
                 name='password'
                 onChange={this.onChange}
-                required
               />
-            </div>
-            <div className='form-group'>
-              <input
+            </Form.Group>
+            <Form.Group>
+              <Form.Control
                 type='text'
-                className='form-control'
                 placeholder='Enter address'
                 name='alamat'
                 onChange={this.onChange}
-                value={this.state.alamat}
-                required
+                value={this.state.username}
               />
-            </div>
+            </Form.Group>
             <Form.Group controlId='exampleForm.ControlSelect1'>
-              <Form.Label>Provinsi</Form.Label>
+              <Form.Label>Province</Form.Label>
               <Form.Control
                 as='select'
-                name='category_id'
+                name='provinsi'
                 onChange={this.onChange}
               >
-                <option value={'jakarta'}>Jakarta</option>
-                <option value={'jawa_barat'}>Jawa Barat</option>
-                <option value={'jawa_tengah'}>Jawa Tengah</option>
-                <option value={'jawa_tengah'}>Sulawesi</option>
+                <option value='jakarta'>jakarta</option>
+                <option value='bogor'>Pc</option>
+                <option value={3}>Smartwatch</option>
+                <option value={4}>Camera</option>
               </Form.Control>
             </Form.Group>
             <Form.Group controlId='exampleForm.ControlSelect1'>
-              <Form.Label>Kota</Form.Label>
-              <Form.Control
-                as='select'
-                name='category_id'
-                onChange={this.onChange}
-              >
-                <option value={'jakarta'}>Jakarta</option>
-                <option value={'bogor'}>Bogor</option>
-                <option value={'tangerang'}>Tangerang</option>
-                <option value={'bekasi'}>Bekasi</option>
+              <Form.Label>City</Form.Label>
+              <Form.Control as='select' name='kota' onChange={this.onChange}>
+                <option onChange={this.onChange} value={'bogor'}>
+                  jakarta
+                </option>
+                <option value={2}>Pc</option>
+                <option value={3}>Smartwatch</option>
+                <option value={4}>Camera</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='exampleForm.ControlSelect1'>
-              <Form.Label>Category</Form.Label>
+            <Form.Group>
               <Form.Control
-                as='select'
-                name='category_id'
+                type='text'
+                placeholder='Enter status'
+                name='status'
                 onChange={this.onChange}
-              >
-                <option value={1}>Admin</option>
-                <option value={2}>Cashier</option>
-              </Form.Control>
+                value={this.state.name}
+              />
             </Form.Group>
-            <button
-              onClick={this.onSubmit}
-              type='submit'
-              className='btn btn-primary'
-            >
-              Edit
-            </button>
+            <Modal.Footer>
+              <Button variant='primary' type='submit'>
+                Save Changes
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
       </Modal>

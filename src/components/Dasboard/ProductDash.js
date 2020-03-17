@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getProducts } from '../redux/actions/product';
+import { Link } from 'react-router-dom';
 
 import { Container, Row, Button, Table, Col } from 'react-bootstrap';
 import NewNavbar from '../Layout/Navbar';
@@ -13,22 +14,95 @@ class ProductDash extends Component {
     idProduct: '',
     selectProduct: null,
     selectProductDelete: null,
+
+    activePage: 1,
+    sort: 'id',
+    by: 'ASC',
+    searchName: '',
+    activeCategory: '',
   };
 
   onClickHandler = e => {
     console.log(e.target.value);
     this.setState({
+      selectProduct: product,
       idProduct: e.target.value,
     });
   };
 
   getProducts = () => {
-    this.props.dispatch(getProducts());
+    const data = {};
+    this.props.dispatch(getProducts(data));
   };
 
   componentDidMount() {
     this.getProducts();
   }
+
+  onClickMenu = e => {
+    this.setState({ activeCategory: e.target.id });
+    if (e.target.id === '') this.setState({ activeCategory: '' });
+    const data = {
+      activePage: 1,
+      activeCategory: e.target.id,
+      searchName: '',
+      sort: this.state.sort,
+      by: this.state.by,
+    };
+    this.props.dispatch(getProducts(data));
+  };
+
+  //Sort
+  onSort = e => {
+    this.setState({ sort: e.target.id });
+    const data = {
+      activePage: 1,
+      activeCategory: this.state.activeCategory,
+      searchName: '',
+      sort: e.target.id,
+      by: this.state.by,
+    };
+    this.props.dispatch(getProducts(data));
+  };
+
+  //SortBy
+  onBy = e => {
+    this.setState({ by: e.target.id });
+    const data = {
+      activePage: 1,
+      activeCategory: this.state.activeCategory,
+      searchName: '',
+      sortBy: this.state.sort,
+      sort: e.target.id,
+    };
+    this.props.dispatch(getProducts(data));
+  };
+
+  //On search
+  onChangeSearch = e => {
+    this.setState({ searchName: e.target.value });
+    const data = {
+      activePage: 1,
+      activeCategory: '',
+      searchName: e.target.value,
+      sort: this.state.sort,
+      by: this.state.by,
+    };
+    this.props.dispatch(getProducts(data));
+  };
+
+  //Pagination
+  changePage = e => {
+    this.setState({ activePage: e });
+    const data = {
+      activePage: e,
+      activeCategory: this.state.activeCategory,
+      searchName: this.state.searchName,
+      sort: this.state.sort,
+      by: this.state.by,
+    };
+    this.props.dispatch(getProducts(data));
+  };
 
   onLogout() {
     localStorage.removeItem('user-id');
@@ -55,36 +129,73 @@ class ProductDash extends Component {
     const { products, categorys } = this.props;
     return (
       <Row>
-        <Col sm='1'>
-          <div>
-            <button
+        <NewNavbar onClick={this.onLogout.bind(this)} onhidden={true} />
+        <NewModals categorys={categorys} />
+        <EditModals
+          idProduct={this.state.idProduct}
+          categorys={categorys}
+          selectProduct={this.state.selectProduct}
+        />
+        <DeleteModal idProduct={this.state.idProduct} />
+        <Row style={{ marginTop: '20px', marginBottom: '20px' }}></Row>
+        <Container>
+          <nav class='navbar navbar-light bg-light'>
+            <ul class='navbar nav bg-light' style={{ background: '#eef0eb' }}>
+              <li class='nav-item'>
+                <Link class='nav-link' id='' onClick={this.onClickMenu}>
+                  All
+                </Link>
+              </li>
+              <li class='nav-item'>
+                <Link class='nav-link' id='food' onClick={this.onClickMenu}>
+                  Foods
+                </Link>
+              </li>
+              <li class='nav-item'>
+                <Link class='nav-link' id='drink' onClick={this.onClickMenu}>
+                  Drinks
+                </Link>
+              </li>
+              <li class='nav-item dropdown'>
+                <Link
+                  class='nav-link dropdown-toggle'
+                  data-toggle='dropdown'
+                  role='button'
+                  aria-haspopup='true'
+                  aria-expanded='false'
+                >
+                  By
+                </Link>
+                <div class='dropdown-menu'>
+                  <Link class='dropdown-item' id='name' onClick={this.onBy}>
+                    Name
+                  </Link>
+                  <Link class='dropdown-item' id='price' onClick={this.onBy}>
+                    Price
+                  </Link>
+                </div>
+              </li>
+              <form className='form-inline'>
+                <input
+                  className='form-control mr-sm-2'
+                  type='search'
+                  placeholder='Search'
+                  onChange={this.onChangeSearch}
+                />
+              </form>
+            </ul>
+          </nav>
+          <div className='Button mt-3'>
+            <Button
               type='button'
-              className='add btn btn-outline-light'
+              className=' btn btn-primary btn-outline-light'
               data-toggle='modal'
               data-target='#exampleModal'
-              style={{
-                backgroundColor: 'transparent',
-                border: '0px solid black',
-                marginLeft: '7rem',
-                marginTop: '7rem',
-                possition: 'fixed',
-              }}
             >
-              <i className='material-icons' style={{ color: 'grey' }}>
-                {' '}
-                add_to_queue
-              </i>
-            </button>
+              Add
+            </Button>
           </div>
-          <div></div>
-        </Col>
-        <Container>
-          <NewNavbar onClick={this.onLogout.bind(this)} onhidden={true} />
-          <NewModals categorys={categorys} />
-          <EditModals idProduct={this.state.idProduct} categorys={categorys} />
-          <DeleteModal idProduct={this.state.idProduct} />
-          <Row style={{ marginTop: '20px', marginBottom: '20px' }}></Row>
-          <Table striped bordered hover>
+          <Table bordered hover className='mt-3'>
             <thead>
               <tr>
                 <th>id</th>
@@ -105,6 +216,7 @@ class ProductDash extends Component {
                   <td>{product.stock}</td>
                   <td>
                     <Button
+                      className='Button'
                       onClick={this.onClickHandler}
                       data-toggle='modal'
                       data-target='#editModal'
@@ -113,17 +225,18 @@ class ProductDash extends Component {
                       variant='warning'
                       product={this.state.selectProduct}
                     >
-                      Edit
+                      <i className='fas fa-edit'></i>
                     </Button>{' '}
                     -
                     <Button
+                      className='Button'
                       onClick={this.onClickHandler}
                       data-toggle='modal'
                       data-target='#deleteModal'
                       variant='danger'
                       value={product.id}
                     >
-                      Delete
+                      <i class='fas fa-trash'></i>
                     </Button>
                   </td>
                 </tr>

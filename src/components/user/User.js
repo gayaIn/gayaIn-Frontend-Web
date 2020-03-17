@@ -97,12 +97,17 @@ class User extends Component {
               <h5>Manage users</h5>
             </Col>
             <Col sm={2}>
-              <Button variant='primary' size='sm' onClick={this.handleShow}>
+              <Button
+                className='Button'
+                variant='primary'
+                size='sm'
+                onClick={this.handleShow}
+              >
                 Add User
               </Button>
             </Col>
           </Row>
-          <Table striped bordered hover size='sm'>
+          <Table bordered hover>
             <thead>
               <tr>
                 <th scope='col'>#</th>
