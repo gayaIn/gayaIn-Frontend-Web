@@ -1,8 +1,8 @@
-import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import React from "react";
+import { Modal, Button } from "react-bootstrap";
 
-import { connect } from 'react-redux';
-import { deleteUser } from '../redux/actions/user';
+import { connect } from "react-redux";
+import { deleteUser } from "../redux/actions/user";
 const UserDelete = props => {
   const { user, show, onHide, dispatch } = props;
 
@@ -19,22 +19,21 @@ const UserDelete = props => {
   };
 
   return (
-    <Modal show={show} onHide={onHide} variant='lg'>
+    <Modal show={show} onHide={onHide} variant="lg">
       <Modal.Header>
-        <p>
-          Apakah Anda Yakin Ingin Menghapus Book {user ? user.name : ''} ini ?
-        </p>
+        <p>Do you really want to delete User {user ? user.name : ""} ?</p>
       </Modal.Header>
       <Modal.Body>
         <Button
-          variant='primary'
-          size='sm'
+          variant="primary"
+          size="sm"
           onClick={onCancelHandle}
-          style={{ marginRight: '10px' }}
+          style={{ marginRight: "10px" }}
+          style={{backgroundColor:'#f1a98c', border: 'transparent'}}
         >
           Cancel
         </Button>
-        <Button variant='danger' size='sm' onClick={onDeleteHandle}>
+        <Button variant="danger" size="sm" onClick={onDeleteHandle} style={{backgroundColor:'#a5a6a8', border: 'transparent', marginLeft: '5px'}}>
           Delete
         </Button>
       </Modal.Body>

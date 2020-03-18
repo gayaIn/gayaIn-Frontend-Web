@@ -35,80 +35,88 @@ class UserAdd extends Component {
         <Modal.Body>
           <Form onSubmit={this.onSubmit}>
             <div className='form-group'>
+              <label>Nama</label>
               <input
                 type='text'
                 className='form-control'
-                placeholder='Enter name'
+                placeholder='Enter Name'
                 name='name'
                 onChange={this.onChange}
                 required
               />
             </div>
             <div className='form-group'>
+            <label>Email</label>
               <input
                 type='email'
                 className='form-control'
-                placeholder='Enter email'
+                placeholder='Enter Email'
                 name='email'
                 onChange={this.onChange}
                 required
               />
             </div>
             <div className='form-group'>
+            <label>Username</label>
               <input
                 type='text'
                 className='form-control'
-                placeholder='Enter username'
+                placeholder='Enter Username'
                 name='username'
                 onChange={this.onChange}
                 required
               />
             </div>
             <div className='form-group'>
+            <label>Password</label>
               <input
                 type='password'
                 className='form-control'
-                placeholder='Enter password'
+                placeholder='Enter Password'
                 name='password'
                 onChange={this.onChange}
                 required
               />
             </div>
             <div className='form-group'>
+            <label>Alamat</label>
               <input
                 type='text'
                 className='form-control'
-                placeholder='Enter address'
+                placeholder='Enter Address'
                 name='alamat'
                 onChange={this.onChange}
                 required
               />
             </div>
             <div className='form-group'>
+            <label>Provinsi</label>
               <input
                 type='text'
                 className='form-control'
-                placeholder='Enter address'
+                placeholder='Enter Province'
                 name='provinsi'
                 onChange={this.onChange}
                 required
               />
             </div>
             <div className='form-group'>
+            <label>Kota</label>
               <input
                 type='text'
                 className='form-control'
-                placeholder='Enter address'
+                placeholder='Enter City'
                 name='kota'
                 onChange={this.onChange}
                 required
               />
             </div>
             <div className='form-group'>
+            <label>Status</label>
               <input
                 type='text'
                 className='form-control'
-                placeholder='Enter address'
+                placeholder='Enter Status'
                 name='status'
                 onChange={this.onChange}
                 required
@@ -119,6 +127,7 @@ class UserAdd extends Component {
               onClick={this.onSubmit}
               type='submit'
               className='btn btn-primary'
+              style={{backgroundColor:'#f1a98c', border: 'transparent'}}
             >
               ADD
             </button>

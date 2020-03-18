@@ -106,9 +106,9 @@ class NewNavbar extends Component {
       <Fragment>
         <nav
           className='navbarTop navbar sticky-top navbar-expand-lg navbar-light bg-ligh'
-          style={{ width: '100rem', height: '63px', marginLeft: '2%' }}
+          style={{ width: '100rem', height: '63px', marginLeft: '1%', position: 'fixed' }}
         >
-          <span className='navbar-brand'>FamiRest</span>
+          <span className='navbar-brand'>Gaya-In</span>
           <button
             className='navbar-toggler'
             type='button'
@@ -161,32 +161,7 @@ class NewNavbar extends Component {
                 }}
               >
                 <div className='input-group-prepend'>
-                  <label
-                    hidden={onhidden}
-                    className='input-group-text'
-                    for='inputGroupSelect01'
-                  >
-                    Filter
-                  </label>
                 </div>
-                <select
-                  hidden={onhidden}
-                  className='custom-select'
-                  id='inputGroupSelect01'
-                  onChange={this.filterCategory}
-                >
-                  <option selected value={0} disabled>
-                    Choose...
-                  </option>
-                  <option selected value={''}>
-                    All
-                  </option>
-                  {categorys.map((category, index) => (
-                    <option key={index} value={category.name}>
-                      {category.name}
-                    </option>
-                  ))}
-                </select>
               </div>
             </div>
           </div>

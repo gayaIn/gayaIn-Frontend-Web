@@ -44,35 +44,37 @@ class ProductDash extends Component {
     });
   };
 
-  productDelete = (e,product) => {
-    this.setState({
-      selectProductDelete: product,
-    });
-  };
 
   render() {
     const { products, categorys } = this.props;
     return (
-      <Row>
+      <Row style={{backgroundColor:'#ebebeb'}}>
         <NewNavbar onClick={this.onLogout.bind(this)} onhidden={true} />
         <NewModals categorys={categorys} />
         <EditModals categorys={categorys} product={this.state.selectProduct} />
         <DeleteModal idProduct={this.state.idProduct} product={this.state.selectProductDelete} />
-        <Row style={{ marginTop: '20px', marginBottom: '20px' }}></Row>
-        <Container>
-          <div className='Button mt-3'>
+        <Row style={{ marginTop: '20px', marginBottom: '20px'}}></Row>
+        <Container style={{ marginTop: '5%' }}>
+          <Row style={{marginTop:'20px'}}>
+            <Col sm={10}>
+              <h5>Manage product</h5>
+            </Col>
+            <Col sm={2}>
             <Button
               type='button'
               className=' btn btn-primary btn-outline-light'
               data-toggle='modal'
               data-target='#exampleModal'
+              style={{backgroundColor:'#f1a98c', border: 'transparent'}}
             >
               Add
             </Button>
-          </div>
+            </Col>
+          </Row>
           <Table className='mt-3'>
             <thead>
               <tr>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Category</th>
                 <th>Price</th>
@@ -84,6 +86,7 @@ class ProductDash extends Component {
             <tbody>
               {products.map((product, index) => (
                 <tr key={index}>
+                  <td><img src={product.image} style={{height:'50px', width:'50px', borderRadius:'10px'}} /></td>
                   <td>{product.name}</td>
                   <td>{product.category}</td>
                   <td>{product.price}</td>
@@ -98,18 +101,20 @@ class ProductDash extends Component {
                       variant='danger'
                       value={product.id}
                       variant='warning'
+                      style={{backgroundColor:'transparent', border: 'transparent'}}
                     >
-                      <i className='fas fa-edit'></i>
+                      <i className='fas fa-edit' style={{color:'#929394'}}></i>
                     </Button>{' '}
-                    -
+                    - {' '}
                     <Button
                       className='Button'
                       onClick={() => (this.onClickHandler(product.id))}
                       data-toggle='modal'
                       data-target='#deleteModal'
                       variant='danger'
+                      style={{backgroundColor:'transparent', border: 'transparent'}}
                     >
-                      <i class='fas fa-trash' ></i>
+                      <i class='fas fa-trash' style={{color:'#929394'}} ></i>
                     </Button>
                   </td>
                 </tr>

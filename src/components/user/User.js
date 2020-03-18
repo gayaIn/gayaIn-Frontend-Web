@@ -89,18 +89,20 @@ class User extends Component {
     ));
 
     return (
-      <React.Fragment>
-        <NewNavbar onClick={this.onLogout.bind(this)} />
-        <Container style={{ marginTop: '20px' }}>
+      <Row style={{backgroundColor:'#ebebeb',height:'100vh'}}>
+        <NewNavbar onClick={this.onLogout.bind(this)}/>
+        <Container style={{ marginTop: '5%' }}>
           <Row style={{ marginBottom: '20px' }}>
             <Col sm={10}>
               <h5>Manage users</h5>
             </Col>
             <Col sm={2}>
               <Button
-                className='Button'
-                variant='primary'
-                size='sm'
+                type='button'
+                className=' btn btn-primary btn-outline-light'
+                data-toggle='modal'
+                data-target='#exampleModal'
+                style={{backgroundColor:'#f1a98c', border: 'transparent'}}
                 onClick={this.handleShow}
               >
                 Add User
@@ -114,7 +116,6 @@ class User extends Component {
                 <th scope='col'>Name</th>
                 <th scope='col'>Email</th>
                 <th scope='col'>Role Id</th>
-                <th scope='col'>Created_at</th>
                 <th scope='col'>Actions</th>
               </tr>
             </thead>
@@ -132,7 +133,7 @@ class User extends Component {
             user={this.state.selectUserDelete}
           />
         </Container>
-      </React.Fragment>
+      </Row>
     );
   }
 }

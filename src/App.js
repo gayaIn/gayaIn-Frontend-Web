@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './components/redux/store';
 
-import ProductParent from './components/Product/productParent';
 import CategoryParent from './components/Dasboard/Category/categoryParent';
 import ProductDash from './components/Dasboard/ProductDash';
 import Login from './components/auth/Login';
@@ -19,7 +18,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Route exact path='/Dashboard/Product' component={ProductDash} />
+        <Route exact path='/' component={ProductDash} />
         <Route path='/Dashboard/Category' component={CategoryParent} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />

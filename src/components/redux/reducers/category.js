@@ -33,40 +33,40 @@ const category = (state = initialState, action) => {
                  categorys: newDataCategory
              }
 
-                 case 'DELETE_CATEGORY_PENDING':
+             case 'DELETE_CATEGORY_PENDING':
+                return{
+                    ...state
+                }
+             case 'DELETE_CATEGORY_REJECTED':
+                 return{
+                     ...state
+                 }
+             case 'DELETE_CATEGORY_FULFILLED':
+                const newDeleteCategory = state.categorys.filter(category => category.category_id !== action.payload.data.result.category_id)
+                 return{
+                     ...state,
+                     categorys: newDeleteCategory
+                 }
+            
+                 case 'PATCH_CATEGORY_PENDING':
                     return{
                         ...state
                     }
-                 case 'DELETE_CATEGORY_REJECTED':
+                 case 'PATCH_CATEGORY_REJECTED':
                      return{
                          ...state
                      }
-                 case 'DELETE_CATEGORY_FULFILLED':
-                    const newDeleteCategory = state.categorys.filter(category => category.id !== action.payload.data.result.id)
+                 case 'PATCH_CATEGORY_FULFILLED':
+                     const newEditCategory = state.categorys.map(category => {
+                        if(category.category_id === action.payload.data.result.category_id){
+                            return action.payload.data.result;
+                        }
+                         return category;
+                    })
                      return{
                          ...state,
-                         categorys: newDeleteCategory
+                         categorys: newEditCategory
                      }
-                
-                     case 'PATCH_CATEGORY_PENDING':
-                        return{
-                            ...state
-                        }
-                     case 'PATCH_CATEGORY_REJECTED':
-                         return{
-                             ...state
-                         }
-                     case 'PATCH_CATEGORY_FULFILLED':
-                         const newEditCategory = state.categorys.map(category => {
-                            if(category.id === action.payload.data.result.id){
-                                return action.payload.data.result;
-                            }
-                             return category;
-                        })
-                         return{
-                             ...state,
-                             categorys: newEditCategory
-                         }
         default:
             return state;
         }

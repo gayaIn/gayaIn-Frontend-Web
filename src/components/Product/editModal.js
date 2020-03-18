@@ -27,7 +27,6 @@ class EditModals extends Component {
 
   componentWillReceiveProps({ product }) {
     this.onSetValue(product);
-    console.log(product)
 }
 
   onSetValue = (product) => {
@@ -161,6 +160,7 @@ class EditModals extends Component {
                     data-dismiss='modal'
                     variant='primary'
                     type='submit'
+                    style={{backgroundColor:'#f1a98c', border: 'transparent'}}
                   >
                     Submit
                   </Button>
