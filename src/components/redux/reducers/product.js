@@ -47,6 +47,7 @@ const product = (state = initialState, action) => {
                      ...state
                  }
              case 'PATCH_PRODUCT_FULFILLED':
+                 console.log(action.payload.data.result)
                 const newEditProduct = state.products.map(product => {
                     if(product.id === action.payload.data.result.id){
                         return action.payload.data.result;

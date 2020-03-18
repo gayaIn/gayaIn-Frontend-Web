@@ -96,7 +96,11 @@ class ProductParent extends Component {
   };
 
   render() {
+<<<<<<< HEAD
     console.log(this.props.pages);
+=======
+    console.log(this.state.selectProduct);
+>>>>>>> desain-web
     const { products, categorys, carts, total, pages } = this.props;
     return (
       <div className='row'>
@@ -105,8 +109,11 @@ class ProductParent extends Component {
           style={{ height: '100vh', overflowX: 'hidden' }}
         >
           <NewNavbar categorys={categorys} onClick={this.onLogout.bind(this)} />
+<<<<<<< HEAD
           <EditModals idProduct={this.state.idProduct} categorys={categorys} />
           <DeleteModal idProduct={this.state.idProduct} />
+=======
+>>>>>>> desain-web
           <div className='row' style={{ paddingLeft: '50px' }}>
             {products.map(product => (
               <div
@@ -145,6 +152,7 @@ class ProductParent extends Component {
                       </div>
                     </div>
                   </div>
+<<<<<<< HEAD
                 </div>
               </div>
             ))}
@@ -206,6 +214,62 @@ class ProductParent extends Component {
                   {' '}
                   {cart.qty}{' '}
                 </div>
+=======
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <NewModals categorys={categorys} />
+        <div
+          className='cartbar col-md-3 bg-light'
+          style={{ height: '39.5rem', float: 'right', overflowY: 'scroll' }}
+        >
+          <div
+            style={{
+              backgroundColor: '#d9d9d9',
+              height: '4rem',
+              marginLeft: '-14px',
+            }}
+          >
+            <center>
+              <h5 style={{ lineHeight: '4rem' }}>Cart</h5>
+            </center>
+          </div>
+          {carts.map(cart => (
+            <li class='media'>
+              <img
+                src={cart.image}
+                class='mr-3'
+                alt=''
+                style={{ height: '64px', width: '64px' }}
+              />
+              <div class='media-body'>
+                <h5 class='mt-0 mb-1'>{cart.name}</h5>
+                Rp. {cart.price}
+                <button
+                  type='button'
+                  class='btn btn-outline-secondary'
+                  onClick={() => this.reduceQuantity(cart.id)}
+                  style={{ display: 'inline', marginLeft: '10px' }}
+                >
+                  -
+                </button>
+                <div
+                  type='text'
+                  class='form-control'
+                  style={{
+                    width: '40px',
+                    display: 'inline',
+                    backgroundColor: 'transparent',
+                    border: '0px solid black',
+                  }}
+                  aria-describedby='basic-addon1'
+                >
+                  {' '}
+                  {cart.qty}{' '}
+                </div>
+>>>>>>> desain-web
                 <button
                   type='button'
                   class='btn btn-outline-secondary'

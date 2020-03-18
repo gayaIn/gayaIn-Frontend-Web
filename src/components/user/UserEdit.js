@@ -31,7 +31,10 @@ class UserEdit extends Component {
     });
   };
   onChange = e => {
+<<<<<<< HEAD
     console.log(e);
+=======
+>>>>>>> desain-web
     this.setState({
       [e.target.name]: e.target.value,
     });
@@ -50,15 +53,24 @@ class UserEdit extends Component {
           <p>Add Book</p>
         </Modal.Header>
         <Modal.Body>
+<<<<<<< HEAD
           <Form onSubmit={this.onSubmit}>
             <Form.Group>
               <Form.Control
                 type='text'
+=======
+          <Form>
+            <div className='form-group'>
+              <input
+                type='text'
+                className='form-control'
+>>>>>>> desain-web
                 placeholder='Enter name'
                 name='name'
                 onChange={this.onChange}
                 value={this.state.name}
               />
+<<<<<<< HEAD
             </Form.Group>
             <Form.Group>
               <Form.Control
@@ -79,10 +91,38 @@ class UserEdit extends Component {
             <Form.Group>
               <Form.Control
                 type='password'
+=======
+            </div>
+            <div className='form-group'>
+              <input
+                type='email'
+                className='form-control'
+                placeholder='Enter email'
+                name='email'
+                onChange={this.onChange}
+                value={this.state.email}
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Enter username'
+                name='username'
+                onChange={this.onChange}
+                value={this.state.username}
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='password'
+                className='form-control'
+>>>>>>> desain-web
                 placeholder='Enter password'
                 name='password'
                 onChange={this.onChange}
               />
+<<<<<<< HEAD
             </Form.Group>
             <Form.Group>
               <Form.Control
@@ -131,6 +171,56 @@ class UserEdit extends Component {
                 Save Changes
               </Button>
             </Modal.Footer>
+=======
+            </div>
+            <div className='form-group'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Enter address'
+                name='alamat'
+                onChange={this.onChange}
+                value={this.state.alamat}
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Enter address'
+                name='provinsi'
+                onChange={this.onChange}
+                value={this.state.provinsi}
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Enter address'
+                name='kota'
+                onChange={this.onChange}
+                value={this.state.kota}
+              />
+            </div>
+            <div className='form-group'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Enter address'
+                name='status'
+                onChange={this.onChange}
+                value={this.state.status}
+              />
+            </div>
+            <button
+              onClick={this.onSubmit}
+              type='submit'
+              className='btn btn-primary'
+            >
+              Edit
+            </button>
+>>>>>>> desain-web
           </Form>
         </Modal.Body>
       </Modal>
