@@ -15,12 +15,6 @@ class NewNavbar extends Component {
     this.setState({
       category: event.target.value,
     });
-<<<<<<< HEAD
-    // this.props.history.push(
-    //   `/newHome?category=${event.target.value}&name=${this.state.name}`
-    // );
-=======
->>>>>>> desain-web
     this.props.dispatch(filterProduct(event.target.value, this.state.name));
   };
 
@@ -32,12 +26,6 @@ class NewNavbar extends Component {
     this.setState({
       name: event.target.value,
     });
-<<<<<<< HEAD
-    // this.props.history.push(
-    //   `/?category=${this.state.category}&name=${event.target.value}`
-    // );
-=======
->>>>>>> desain-web
     this.props.dispatch(filterProduct(this.state.category, event.target.value));
   };
 
@@ -118,11 +106,7 @@ class NewNavbar extends Component {
       <Fragment>
         <nav
           className='navbarTop navbar sticky-top navbar-expand-lg navbar-light bg-ligh'
-<<<<<<< HEAD
-          style={{ width: '100rem', height: '63px' }}
-=======
           style={{ width: '100rem', height: '63px', marginLeft: '2%' }}
->>>>>>> desain-web
         >
           <span className='navbar-brand'>FamiRest</span>
           <button
@@ -138,14 +122,6 @@ class NewNavbar extends Component {
           </button>
           <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
             <div className='navbar-nav'>
-<<<<<<< HEAD
-              <span hidden={this.state.onhiden}>
-                <Link to='/' className='nav-item nav-link'>
-                  <span className='fa fa-fw fa-home' />
-                </Link>
-              </span>
-=======
->>>>>>> desain-web
               <ValidasiForm />
 
               <span>

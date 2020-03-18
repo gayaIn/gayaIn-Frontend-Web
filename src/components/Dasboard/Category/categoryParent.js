@@ -48,16 +48,9 @@ class CategoryParent extends Component {
               Add
             </Button>
           </div>
-<<<<<<< HEAD
-          <Table bordered hover className='mt-3'>
-            <thead>
-              <tr>
-                <th>id</th>
-=======
           <Table className='mt-3'>
             <thead>
               <tr>
->>>>>>> desain-web
                 <th>Name</th>
                 <th>Actions</th>
               </tr>
@@ -65,10 +58,6 @@ class CategoryParent extends Component {
             <tbody>
               {categorys.map((category, index) => (
                 <tr key={index}>
-<<<<<<< HEAD
-                  <td>{category.category_id}</td>
-=======
->>>>>>> desain-web
                   <td>{category.name}</td>
                   <td>
                     <Button

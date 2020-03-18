@@ -19,14 +19,8 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-<<<<<<< HEAD
-        <Route exact path='/' component={ProductParent} />
-        <Route path='/Dashboard/Category' component={CategoryParent} />
-        <Route path='/Dashboard/Product' component={ProductDash} />
-=======
         <Route exact path='/Dashboard/Product' component={ProductDash} />
         <Route path='/Dashboard/Category' component={CategoryParent} />
->>>>>>> desain-web
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <Route path='/user' component={User} />
