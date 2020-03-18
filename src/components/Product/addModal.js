@@ -9,10 +9,11 @@ class NewModals extends Component{
 
         state={
             name: '',
+            image: '',
             category: 0,
-            price:'-',
-            stock:'-',
-            image:'',   
+            price: '-',
+            stock: '-',
+            brand: '',   
         }
         
         onChangeImageHandler = (e)=>{
@@ -37,6 +38,7 @@ class NewModals extends Component{
             data.append("name", this.state.name)
             data.append("price", this.state.price)
             data.append("category", this.state.category)
+            data.append('brand', this.state.brand);
             data.append("stock", this.state.stock)
             data.append("image", this.state.image)
 
@@ -70,7 +72,7 @@ class NewModals extends Component{
                                     <Form.Control name="category" onChange={this.onChangeHandler} as="select">
                                         <option selected value={0} disabled>Choose...</option>
                                         { categorys.map((category, index) => 
-                                        <option key={index} value={category.id}>
+                                        <option key={index} value={category.category_id}>
                                             {category.name}
                                         </option>
                                     )}
@@ -83,6 +85,10 @@ class NewModals extends Component{
                                 <Form.Group>
                                     <Form.Label>Stock</Form.Label>
                                     <Form.Control type="number" placeholder="Enter Stock" name="stock" onChange={this.onChangeHandler} />
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>brand</Form.Label>
+                                    <Form.Control type="text" placeholder="Enter Stock" name="brand" onChange={this.onChangeHandler} />
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Image</Form.Label>
