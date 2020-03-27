@@ -16,7 +16,7 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    if (localStorage.getItem("token")) {
+    if (localStorage.getItem("name") ) {
       this.props.history.push("/");
     }
   }
@@ -35,6 +35,7 @@ class Login extends Component {
         localStorage.setItem("user-id", res.data.id);
         localStorage.setItem("status", res.data.status);
         localStorage.setItem("isAuth", true);
+        localStorage.setItem('name',res.data.name)
         this.props.history.push("/");
       })
 

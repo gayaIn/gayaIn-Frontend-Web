@@ -41,7 +41,7 @@ class NewNavbar extends Component {
   render() {
     const { categorys, onClick, onhidden } = this.props;
     const ValidasiForm = () => {
-      if (localStorage.getItem('Status') === '1') {
+      if (localStorage.getItem('status') === '1') {
         return (
           <Fragment>
             <li className='nav-item dropdown'>
@@ -53,7 +53,7 @@ class NewNavbar extends Component {
                 aria-haspopup='true'
                 aria-expanded='false'
               >
-                Dashboard
+                <i class='fa fa-fw fa-cogs'></i>
               </Link>
               <div className='dropdown-menu' aria-labelledby='navbarDropdown'>
                 <span className='dropdown-item'>
@@ -62,7 +62,7 @@ class NewNavbar extends Component {
                   </Link>{' '}
                 </span>
                 <span className='dropdown-item'>
-                  <Link to='/Dashboard/Product' className='nav-item nav-link'>
+                  <Link to='/' className='nav-item nav-link'>
                     Product
                   </Link>
                 </span>
@@ -91,7 +91,7 @@ class NewNavbar extends Component {
                   </Link>{' '}
                 </span>
                 <span className='dropdown-item'>
-                  <Link to='/Dashboard/Product' className='nav-item nav-link'>
+                  <Link to='/' className='nav-item nav-link'>
                     Product
                   </Link>
                 </span>
@@ -106,7 +106,7 @@ class NewNavbar extends Component {
       <Fragment>
         <nav
           className='navbarTop navbar sticky-top navbar-expand-lg navbar-light bg-ligh'
-          style={{ width: '100rem', height: '63px', marginLeft: '1%', position: 'fixed' }}
+          style={{ width: '100rem', height: '63px', marginLeft: '1%', position: 'fixed', boxShadow: '0px 5px 10px #2222228c' }}
         >
           <span className='navbar-brand'>Gaya-In</span>
           <button
@@ -128,7 +128,6 @@ class NewNavbar extends Component {
                 <Link
                   to='/user'
                   className='nav-item nav-link'
-                  onClick={onClick}
                 >
                   <i className='fas fa-user-cog'></i>
                 </Link>

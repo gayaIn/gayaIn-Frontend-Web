@@ -1,7 +1,7 @@
 import axios from 'axios';
 require('dotenv').config();
 
-export const getProducts = (activepage, limit) => {
+export const getProducts = (activepage) => {
   const page = activepage || 1;
   return {
     type: 'GET_PRODUCT',
