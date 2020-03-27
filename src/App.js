@@ -10,7 +10,7 @@ import ProductDash from './components/Dasboard/ProductDash';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import User from './components/user/User';
-
+import History from './components/Dasboard/history/History'
 require('dotenv').config();
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <Route path='/user' component={User} />
+        <Route path='/history' component={History}/>
       </Router>
     </Provider>
   );

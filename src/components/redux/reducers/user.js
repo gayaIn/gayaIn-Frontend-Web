@@ -2,10 +2,9 @@ const initialState = {
   user: [],
 };
 const user = (state = initialState, action) => {
-  console.log(action.type);
   switch (action.type) {
     case 'GET_USER_FULFILLED':
-      // console.log(action.payload);
+      // console.log(user);
       return {
         ...state,
         user: action.payload.data.result,
@@ -56,9 +55,9 @@ const user = (state = initialState, action) => {
         user: newUserAfterUpdate,
       };
     case 'DELETE_USER_FULFILLED':
-      //console.log(action.payload.data.result);
+      console.log(user.id);
       const newDataAfterDelete = state.user.filter(
-        user => user.id !== action.payload.data.result
+        user => user.id !== action.payload.data.result.id
       );
       return {
         ...state,

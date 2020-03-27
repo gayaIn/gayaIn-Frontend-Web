@@ -32,7 +32,6 @@ const product = (state = initialState, action) => {
              }
          case 'POST_PRODUCT_FULFILLED':
             const newDataProduct = [...state.products, action.payload.data.result]
-
              return{
                  ...state,
                  products: newDataProduct
