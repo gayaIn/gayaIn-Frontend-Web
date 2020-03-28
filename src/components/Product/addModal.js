@@ -1,30 +1,30 @@
-import React, { Component } from "react";
-import { Button, Form } from "react-bootstrap";
+import React, { Component } from 'react';
+import { Button, Form } from 'react-bootstrap';
 
-import { connect } from "react-redux";
-import { addProduct } from "../redux/actions/product";
+import { connect } from 'react-redux';
+import { addProduct } from '../redux/actions/product';
 
 class NewModals extends Component {
   state = {
-    name: "",
-    image: "",
+    name: '',
+    image: '',
     category: 0,
-    price: "-",
-    stock: "-",
-    brand: ""
+    price: '-',
+    stock: '-',
+    brand: '',
   };
 
   onChangeImageHandler = e => {
     console.log(e.target.files[0]);
     this.setState({
-      image: e.target.files[0]
+      image: e.target.files[0],
     });
   };
 
   onChangeHandler = e => {
     console.log(e.target.value);
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -32,12 +32,12 @@ class NewModals extends Component {
     e.preventDefault();
 
     let data = new FormData();
-    data.append("name", this.state.name);
-    data.append("price", this.state.price);
-    data.append("category", this.state.category);
-    data.append("brand", this.state.brand);
-    data.append("stock", this.state.stock);
-    data.append("image", this.state.image);
+    data.append('name', this.state.name);
+    data.append('price', this.state.price);
+    data.append('category', this.state.category);
+    data.append('brand', this.state.brand);
+    data.append('stock', this.state.stock);
+    data.append('image', this.state.image);
 
     console.log(this.state);
 
@@ -49,45 +49,45 @@ class NewModals extends Component {
     return (
       <div>
         <div
-          className="modal fade"
-          id="exampleModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
+          className='modal fade'
+          id='exampleModal'
+          tabindex='-1'
+          role='dialog'
+          aria-labelledby='exampleModalLabel'
+          aria-hidden='true'
         >
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">
+          <div className='modal-dialog' role='document'>
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <h5 className='modal-title' id='exampleModalLabel'>
                   Add Product
                 </h5>
                 <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
+                  type='button'
+                  className='close'
+                  data-dismiss='modal'
+                  aria-label='Close'
                 >
-                  <span aria-hidden="true">&times;</span>
+                  <span aria-hidden='true'>&times;</span>
                 </button>
               </div>
-              <div className="modal-body">
+              <div className='modal-body'>
                 <Form>
                   <Form.Group>
                     <Form.Label>Name</Form.Label>
                     <Form.Control
-                      type="text"
-                      placeholder="Enter name"
-                      name="name"
+                      type='text'
+                      placeholder='Enter name'
+                      name='name'
                       onChange={this.onChangeHandler}
                     />
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Category</Form.Label>
                     <Form.Control
-                      name="category"
+                      name='category'
                       onChange={this.onChangeHandler}
-                      as="select"
+                      as='select'
                     >
                       <option selected value={0} disabled>
                         Choose...
@@ -102,45 +102,48 @@ class NewModals extends Component {
                   <Form.Group>
                     <Form.Label>Price</Form.Label>
                     <Form.Control
-                      type="number"
-                      placeholder="Enter Price"
-                      name="price"
+                      type='number'
+                      placeholder='Enter Price'
+                      name='price'
                       onChange={this.onChangeHandler}
                     />
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Stock</Form.Label>
                     <Form.Control
-                      type="number"
-                      placeholder="Enter Stock"
-                      name="stock"
+                      type='number'
+                      placeholder='Enter Stock'
+                      name='stock'
                       onChange={this.onChangeHandler}
                     />
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>brand</Form.Label>
                     <Form.Control
-                      type="text"
-                      placeholder="Enter Stock"
-                      name="brand"
+                      type='text'
+                      placeholder='Enter brand'
+                      name='brand'
                       onChange={this.onChangeHandler}
                     />
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Image</Form.Label>
                     <Form.Control
-                      type="file"
-                      placeholder="Enter image file"
-                      name="image"
+                      type='file'
+                      placeholder='Enter image file'
+                      name='image'
                       onChange={this.onChangeImageHandler}
                     />
                   </Form.Group>
                   <Button
                     onClick={this.onSubmitHandler}
-                    data-dismiss="modal"
-                    variant="primary"
-                    type="submit"
-                    style={{backgroundColor:'#f1a98c', border: 'transparent'}}
+                    data-dismiss='modal'
+                    variant='primary'
+                    type='submit'
+                    style={{
+                      backgroundColor: '#f1a98c',
+                      border: 'transparent',
+                    }}
                   >
                     Submit
                   </Button>
