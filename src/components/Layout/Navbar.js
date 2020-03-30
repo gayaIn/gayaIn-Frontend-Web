@@ -9,6 +9,7 @@ class NewNavbar extends Component {
   state = {
     name: '',
     category: '',
+    hidden: false
   };
 
   filterCategory = event => {
@@ -39,7 +40,7 @@ class NewNavbar extends Component {
     this.getCategory();
   }
   render() {
-    const { categorys, onClick, onhidden } = this.props;
+    const { onClick, onhidden} = this.props;
     const ValidasiForm = () => {
       if (localStorage.getItem('status') === '1') {
         return (
@@ -95,6 +96,11 @@ class NewNavbar extends Component {
                     Product
                   </Link>
                 </span>
+                <span className='dropdown-item'>
+                  <Link to='/history' className='nav-item nav-link'>
+                    History
+                  </Link>
+                </span>
               </div>
             </li>
           </Fragment>
@@ -106,7 +112,7 @@ class NewNavbar extends Component {
       <Fragment>
         <nav
           className='navbarTop navbar sticky-top navbar-expand-lg navbar-light bg-ligh'
-          style={{ width: '100rem', height: '63px', marginLeft: '1%', position: 'fixed', boxShadow: '0px 5px 10px #2222228c' }}
+          style={{ width: '100rem', height: '50px', marginLeft: '1%', position: 'fixed', boxShadow: '0px 5px 10px #2222228c' }}
         >
           <span className='navbar-brand'>Gaya-In</span>
           <button
@@ -144,6 +150,7 @@ class NewNavbar extends Component {
               <div className='search form-inline'>
                 <input
                   onChange={this.searchProduct}
+                  hidden={onhidden}
                   value={this.state.name}
                   className='search form-control mr-sm-2'
                   type='search'

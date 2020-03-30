@@ -11,7 +11,6 @@ class NewModals extends Component {
     category: 0,
     price: "-",
     stock: "-",
-    brand: ""
   };
 
   onChangeImageHandler = e => {
@@ -35,7 +34,6 @@ class NewModals extends Component {
     data.append("name", this.state.name);
     data.append("price", this.state.price);
     data.append("category", this.state.category);
-    data.append("brand", this.state.brand);
     data.append("stock", this.state.stock);
     data.append("image", this.state.image);
 
@@ -114,15 +112,6 @@ class NewModals extends Component {
                       type="number"
                       placeholder="Enter Stock"
                       name="stock"
-                      onChange={this.onChangeHandler}
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>brand</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Enter Stock"
-                      name="brand"
                       onChange={this.onChangeHandler}
                     />
                   </Form.Group>

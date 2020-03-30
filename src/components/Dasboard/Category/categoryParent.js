@@ -86,6 +86,7 @@ class CategoryParent extends Component {
                           width: "100px",
                           borderRadius: "7px"
                         }}
+                        alt=""
                       />
                     </td>
                     <td>{category.name}</td>

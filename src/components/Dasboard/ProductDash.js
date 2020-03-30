@@ -30,7 +30,7 @@ class ProductDash extends Component {
       .reverse()
       .join("");
     for (var i = 0; i < angkarev.length; i++)
-      if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + ".";
+      if (i % 3 === 0) rupiah += angkarev.substr(i, 3) + ".";
     return (
       "Rp. " +
       rupiah
@@ -40,6 +40,7 @@ class ProductDash extends Component {
       ",-"
     );
   };
+
   getProducts = () => {
     this.props.dispatch(getProducts());
   };
@@ -70,7 +71,7 @@ class ProductDash extends Component {
     const { products, categorys } = this.props;
     return (
       <Row style={{ backgroundColor: "#ebebeb" }}>
-        <NewNavbar onClick={this.onLogout.bind(this)} onhidden={true} />
+        <NewNavbar onClick={this.onLogout.bind(this)} onhidden={false} />
         <NewModals categorys={categorys} />
         <EditModals categorys={categorys} product={this.state.selectProduct} />
         <DeleteModal
@@ -78,8 +79,11 @@ class ProductDash extends Component {
           product={this.state.selectProductDelete}
         />
         <Row style={{ marginTop: "20px", marginBottom: "20px" }}></Row>
-        <Container style={{ marginTop: "5%", paddingTop: '2%' }}>
-          <div class="card" style={{ padding: 10, boxShadow: '10px 5px 10px #2222228c' }}>
+        <Container style={{ marginTop: "5%", paddingTop: "2%" }}>
+          <div
+            class="card"
+            style={{ padding: 10, boxShadow: "10px 5px 10px #2222228c" }}
+          >
             <Row style={{ marginTop: "20px" }}>
               <Col sm={10}>
                 <h5>Manage product</h5>
@@ -104,7 +108,6 @@ class ProductDash extends Component {
                   <th>Category</th>
                   <th>Price</th>
                   <th>Stock</th>
-                  <th>Brand</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -119,13 +122,13 @@ class ProductDash extends Component {
                           width: "50px",
                           borderRadius: "10px"
                         }}
+                        alt=""
                       />
                     </td>
                     <td>{product.name}</td>
                     <td>{product.category}</td>
                     <td>{this.convertToRupiah(product.price)}</td>
                     <td>{product.stock}</td>
-                    <td>{product.brand}</td>
                     <td>
                       <Button
                         className="Button"

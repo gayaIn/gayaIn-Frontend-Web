@@ -4,7 +4,6 @@ const initialState = {
 const user = (state = initialState, action) => {
   switch (action.type) {
     case 'GET_USER_FULFILLED':
-      // console.log(user);
       return {
         ...state,
         user: action.payload.data.result,
@@ -24,7 +23,6 @@ const user = (state = initialState, action) => {
         ...state,
         user: newDataUser,
       };
-    // console.log(action.payload);
     case 'POST_USER_PENDING':
       return {
         ...state,

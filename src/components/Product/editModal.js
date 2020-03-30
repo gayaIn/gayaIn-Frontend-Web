@@ -11,7 +11,6 @@ class EditModals extends Component {
     category: 0,
     price: '-',
     stock: '-',
-    brand: '',
   };
   onChangeImageHandler = e => {
     this.setState({
@@ -35,7 +34,6 @@ class EditModals extends Component {
         name: product.name,
         image: product.image,
         category: product.description,
-        brand: product.brand,
         stock: product.stock,
         price: product.price,
     })
@@ -50,7 +48,6 @@ class EditModals extends Component {
     data.append('name', this.state.name);
     data.append('image', this.state.image);
     data.append('category', this.state.category);
-    data.append('brand', this.state.brand);
     data.append('stock', this.state.stock);
     data.append('price', this.state.price);
     console.log(addProduct);
@@ -143,16 +140,6 @@ class EditModals extends Component {
                       placeholder='Enter image file'
                       name='image'
                       onChange={this.onChangeImageHandler}
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>brand</Form.Label>
-                    <Form.Control
-                      type='text'
-                      placeholder='Enter Brand'
-                      name='brand'
-                      value={this.state.brand}
-                      onChange={this.onChangeHandler}
                     />
                   </Form.Group>
                   <Button

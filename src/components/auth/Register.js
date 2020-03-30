@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Link, withRouter } from 'react-router-dom';
-import { Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postUser } from '../redux/actions/user';
 
