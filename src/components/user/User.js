@@ -70,12 +70,12 @@ class User extends Component {
     });
   };
   onLogout() {
-    localStorage.removeItem('user-id');
-    localStorage.removeItem('token');
-    localStorage.removeItem('status');
-    localStorage.removeItem('isAuth');
-    localStorage.removeItem('name');
-    this.props.history.push('/login');
+    localStorage.removeItem("user-id");
+    localStorage.removeItem("token");
+    localStorage.removeItem("status");
+    localStorage.removeItem("isAuth");
+    localStorage.removeItem("name");
+    this.props.history.push("/login");
   }
 
   render() {
@@ -91,9 +91,9 @@ class User extends Component {
     ));
 
     return (
-      <Row style={{ backgroundColor: '#ebebeb', height: '100vh' }}>
-        <NewNavbar onClick={this.onLogout.bind(this)} />
-        <Container style={{ marginTop: '5%', paddingTop: '2%' }}>
+      <Row style={{ backgroundColor: "#ebebeb", height: "100%" }}>
+        <NewNavbar onClick={this.onLogout.bind(this)} onhidden={true} />
+        <Container style={{ marginTop: "5%", paddingTop: '2%' }}>
           <div
             class='card'
             style={{ padding: 10, boxShadow: '10px 5px 10px #2222228c' }}

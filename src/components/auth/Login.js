@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Link, withRouter } from 'react-router-dom';
-import logo from './gayain.png';
-import login from './3255317.png';
-require('dotenv').config();
+import React, { Component } from "react";
+import axios from "axios";
+import logo from "./gayain.png";
+import login from "./3255317.png";
+require("dotenv").config();
 
 class Login extends Component {
   constructor(props) {

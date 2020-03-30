@@ -9,9 +9,8 @@ class NewModals extends Component {
     name: '',
     image: '',
     category: 0,
-    price: '-',
-    stock: '-',
-    brand: '',
+    price: "-",
+    stock: "-",
   };
 
   onChangeImageHandler = e => {
@@ -32,12 +31,11 @@ class NewModals extends Component {
     e.preventDefault();
 
     let data = new FormData();
-    data.append('name', this.state.name);
-    data.append('price', this.state.price);
-    data.append('category', this.state.category);
-    data.append('brand', this.state.brand);
-    data.append('stock', this.state.stock);
-    data.append('image', this.state.image);
+    data.append("name", this.state.name);
+    data.append("price", this.state.price);
+    data.append("category", this.state.category);
+    data.append("stock", this.state.stock);
+    data.append("image", this.state.image);
 
     console.log(this.state);
 
@@ -114,15 +112,6 @@ class NewModals extends Component {
                       type='number'
                       placeholder='Enter Stock'
                       name='stock'
-                      onChange={this.onChangeHandler}
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>brand</Form.Label>
-                    <Form.Control
-                      type='text'
-                      placeholder='Enter brand'
-                      name='brand'
                       onChange={this.onChangeHandler}
                     />
                   </Form.Group>

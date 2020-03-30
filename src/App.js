@@ -10,7 +10,7 @@ import ProductDash from './components/Dasboard/ProductDash';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import User from './components/user/User';
-import History from './components/Dasboard/history/History'
+import History from './components/history/history'
 require('dotenv').config();
 
 function App() {
