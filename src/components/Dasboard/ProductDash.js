@@ -14,14 +14,6 @@ class ProductDash extends Component {
     selectProduct: [],
     selectProductDelete: [],
   };
-  componentDidMount() {
-    if (!localstorage.getItem('isAuth')) {
-      this.props.history.push('/login');
-    } else if (parseInt(localStorage.getItem('status')) !== 1) {
-      alert('Unautorizhed');
-      this.props.history.push('/login');
-    }
-  }
 
   onClickHandler = e => {
     console.log(e);
@@ -57,7 +49,7 @@ class ProductDash extends Component {
     if (!localStorage.getItem('name')) {
       this.props.history.push('/login');
     }
-    this.getProducts();
+    this.getProducts()
   }
 
   onLogout() {
@@ -77,6 +69,7 @@ class ProductDash extends Component {
 
   render() {
     const { products, categorys } = this.props;
+    console.log(this.props)
     return (
       <Row style={{ backgroundColor: "#ebebeb" }}>
         <NewNavbar onClick={this.onLogout.bind(this)} onhidden={false} />
