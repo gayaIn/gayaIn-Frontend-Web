@@ -35,7 +35,13 @@ class Login extends Component {
         localStorage.setItem('status', res.data.status);
         localStorage.setItem('isAuth', true);
         localStorage.setItem('name', res.data.name);
-        this.props.history.push('/');
+        if(parseInt(localStorage.getItem('status'))===1){
+
+          this.props.history.push('/');
+        }
+        else{
+          alert('unauthorized')
+        }
       })
       .catch(err => {
         console.log(err);

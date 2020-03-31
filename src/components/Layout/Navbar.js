@@ -67,6 +67,11 @@ class NewNavbar extends Component {
                     Product
                   </Link>
                 </span>
+                <span className='dropdown-item'>
+                  <Link to='/history' className='nav-item nav-link'>
+                    History
+                  </Link>
+                </span>
               </div>
             </li>
           </Fragment>
