@@ -1,49 +1,79 @@
-nav.navbar{
-    box-shadow: -3px 3px 4px 3px rgba(0, 0, 0, 0.3);
-    z-index: 999;
+nav.navbar {
+  box-shadow: -1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+  z-index: 999;
 }
 
-body{
-    overflow-x: hidden;
-    background-color:#d9d9d9;
+body {
+  overflow-x: hidden;
+  /* background-color: #d9d9d9; */
+}
+.navbarTop {
+  background-color: #a5a6a8;
+  position: fixed;
 }
 
-
-div.content{
-    margin-left: 1%;
-    
+div.content {
+  margin-left: 1%;
 }
 
-input.login{
-    box-shadow: -3px 3px 4px 3px rgba(0, 0, 0, 0.3);
+input.login {
+  box-shadow: -3px 3px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
-div.upcart{
-    background-color: white;
-    margin-left: -5%;
-    height: 9%;
-    width: 110%;
+div.upcart {
+  background-color: white;
+  margin-left: -5%;
+  height: 9%;
+  width: 110%;
 }
 
-img.card-img{
-    border-radius: 10px 20px;
-    box-shadow: -3px 3px 4px 3px rgba(0, 0, 0, 0.3);
+img.card-img {
+  border-radius: 10px 20px;
+  box-shadow: -3px 3px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
-button.edit{
-    margin-top: 25%;
-    margin-left: -20%;
-    font-size: 14px;
+button.edit {
+  margin-top: 25%;
+  margin-left: -20%;
+  font-size: 14px;
+}
+.search {
+  border-radius: 0.5rem;
+}
+button.delete {
+  margin-top: 8%;
+  margin-left: 0;
+  font-size: 14px;
+}
+.Button {
+  border-radius: 1rem;
+}
+.nav-link {
+  transition: 0.4s;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  /* padding: 0 10px;*/
+  margin: 0 10px;
+}
+.nav-link:hover {
+  background-color: #ffffff;
+  color: #eea200;
+  padding: 10px 10px;
+  border-radius: 0.5rem;
 }
 
-button.delete{
-    margin-top: 8%;
-    margin-left: 0;
-    font-size: 14px;
+i.material-icons {
+  color: #f2f2f2;
+  margin-left: 5%;
+  margin-top: 2.5%;
 }
 
-i.material-icons{
-    color: #f2f2f2;
-    margin-left: 5%;
-    margin-top: 2.5%;
+button.login {
+  background-color: #f1a98c;
+  border: transparent;
+}
+
+div.login {
+  background-color: #a5a6a8;
 }
