@@ -70,8 +70,8 @@ ___
 ### Related Projects
 This project is related to several platforms
 
-* Backend [https://github.com/rifkiandriyanto/gayaIn-Backend](https://github.com/rifkiandriyanto/gayaIn-Backend)
-* Mobile App [https://github.com/rifkiandriyanto/gayaIn-frontend-Mobile](https://github.com/rifkiandriyanto/gayaIn-frontend-Mobile)
+* Backend [https://github.com/gayain/gayaIn-Backend](https://github.com/gayain/gayaIn-Backend)
+* Mobile App [https://github.com/gayain/gayaIn-frontend-Mobile](https://github.com/gayain/gayaIn-frontend-Mobile)
 ___
 
 ### Installation
@@ -80,7 +80,7 @@ ___
 clone the repository
 
 ```sh
-$ git clone https://github.com/rifkiandriyanto/gayaIn-Frontend-Web
+$ git clone https://github.com/gayain/gayaIn-Frontend-Web
 $ cd gayaIn-Frontend-Web
 ```
 
@@ -97,7 +97,7 @@ $ npm update
 ```
 
 ##### Setup Environment
-Before project development or build for production, you should create new .env file, edit REACT_APP_URL variable to backend server. you can found the backend server here.. [https://github.com/rifkiandriyanto/gayain-Backend](https://github.com/rifkiandriyanto/gayain-Backend)
+Before project development or build for production, you should create new .env file, edit REACT_APP_URL variable to backend server. you can found the backend server here.. [https://github.com/gayain/gayain-Backend](https://github.com/gayain/gayain-Backend)
 
 ```sh
 REACT_APP_URL=<Backend-api-url>
