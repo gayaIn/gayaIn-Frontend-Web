@@ -6,6 +6,7 @@ import NewNavbar from "../../Layout/Navbar";
 import AddCategoryModals from "./addCategory";
 import EditCategoryModals from "./editCategory";
 import DeleteCategoryModal from "./deleteCategory";
+import {logout} from '../../redux/actions/auth'
 
 class CategoryParent extends Component {
   state = {
@@ -26,13 +27,11 @@ class CategoryParent extends Component {
     });
   };
 
-  onLogout() {
-    localStorage.removeItem("user-id");
-    localStorage.removeItem("token");
-    localStorage.removeItem("status");
-    localStorage.removeItem("isAuth");
-    this.props.history.push("/login");
+  onLogout () {
+    this.props.dispatch(logout())
+    this.props.history.push('/login')
   }
+  
 
   render() {
     const { categorys } = this.props;

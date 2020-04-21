@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
+import {connect} from 'react-redux'
 import logo from "./gayain.png";
-import login from "./3255317.png";
+import loginImage from "./3255317.png";
+import {login} from '../redux/actions/auth'
 require("dotenv").config();
+
 
 class Login extends Component {
   constructor(props) {
@@ -14,9 +16,10 @@ class Login extends Component {
     };
   }
 
+  
   componentDidMount() {
-    if (localStorage.getItem('name')) {
-      this.props.history.push('/');
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/");
     }
   }
 
@@ -24,29 +27,13 @@ class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
-    axios
-      .post(`${process.env.REACT_APP_URL}/user/login`, this.state)
-      .then(res => {
-        console.log(res);
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user-id', res.data.id);
-        localStorage.setItem('status', res.data.status);
-        localStorage.setItem('isAuth', true);
-        localStorage.setItem('name', res.data.name);
-        if(parseInt(localStorage.getItem('status'))===1){
-
-          this.props.history.push('/');
-        }
-        else{
-          alert('unauthorized')
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    console.log(this.state);
+    await this.props.dispatch(login(this.state));
+    await this.props.history.push("/");
   };
+
 
   render() {
     return (
@@ -57,8 +44,8 @@ class Login extends Component {
               width: 1000,
               height: '100vh',
             }}
-            src={login}
-            alt='login'
+            src={loginImage}
+            alt='loginImage'
           />
         </div>
 
@@ -122,4 +109,10 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  };
+};
+
+export default connect(mapStateToProps)(Login);

@@ -7,6 +7,7 @@ import NewNavbar from '../Layout/Navbar';
 import NewModals from '../Product/addModal';
 import EditModals from '../Product/editModal';
 import DeleteModal from '../Product/deleteModal';
+import {logout} from '../redux/actions/auth'
 
 class ProductDash extends Component {
   state = {
@@ -44,22 +45,20 @@ class ProductDash extends Component {
   getProducts = () => {
     this.props.dispatch(getProducts());
   };
-
+  
   componentDidMount() {
-    if (!localStorage.getItem('name')) {
-      this.props.history.push('/login');
-    }
-    this.getProducts()
-  }
+    if (!this.props.auth.isAuthenticated) {
+     this.props.history.push('/login')
+   }
+   this.getProducts();
+ }
 
-  onLogout() {
-    localStorage.removeItem('user-id');
-    localStorage.removeItem('token');
-    localStorage.removeItem('status');
-    localStorage.removeItem('isAuth');
-    localStorage.removeItem('name');
-    this.props.history.push('/login');
-  }
+
+ onLogout () {
+  this.props.dispatch(logout())
+  this.props.history.push('/login')
+}
+
 
   productEdit = product => {
     this.setState({
@@ -182,6 +181,7 @@ const mapStateToProps = state => {
   return {
     categorys: state.categorys.categorys,
     products: state.products.products,
+    auth: state.auth,
   };
 };
 

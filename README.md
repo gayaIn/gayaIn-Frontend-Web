@@ -1,68 +1,142 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  <a href="http://gayainweb.s3-website-us-east-1.amazonaws.com">
+  </a>
+</h1>
 
-## Available Scripts
+<p align="center">
+  <a href="https://github.com/facebook/react/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="React Native is released under the MIT license." />
+  </a>
+  <a href="https://circleci.com/gh/facebook/react-native">
+    <img src="https://circleci.com/gh/facebook/react-native.svg?style=shield" alt="Current CircleCI build status." />
+  </a>
+  <a href="https://www.npmjs.org/package/react>
+    <img src="https://badge.fury.io/js/react-native.svg" alt="Current npm package version." />
+  </a>
+  <a href="https://reactnative.dev/docs/contributing">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
+  </a>
+</p>
 
-In the project directory, you can run:
+## SCREENSHOOT DEMO
+- <b>History Statistic</b>
+![History](upload/1.png)
 
-### `npm start`
+- <b> Manage Uer </b>
+![User](upload/2.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## DEMO
+![http://gayainweb.s3-website-us-east-1.amazonaws.com]("[http://gayainweb.s3-website-us-east-1.amazonaws.com")
 
-### `npm test`
+## Table Of Contents
+*  [Intro](#Intro)
+*  [Requirments](#Requirments)
+*  [Related Projects](#Related-Projects)
+*  [Dependencies](#Dependencies)
+    *  [Clone Repo](#Clone-Repo)
+    *  [Install Depedencies](#Install-Depedencies)
+    *  [Update Depedencies](#Update-Depedencies)
+    *  [Setup Environment](#Setup-Environment)
+    *  [Run server development](#Run-server-development)
+    *  [Build For Production](#Build-For-Production)
+* [Dependencies](#Dependencies)
+* [License](#License)
+___
+### Intro
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Gayain is an e-commerce application collaboration project with the team at the Arkcademy bootcamp.
+Gayain includes web and mobile platforms. Mobile applications are used for marketing,
+while for the web platform it is used for product, user, and category management.
+This application was built with React and React native, shipping gateway using the API
+rajaongkir
 
-### `npm run build`
+___
+### Features
+- [x] Manage Product (CRUD)
+- [x] Manage Category (CRUD)
+- [x] Manage User (CRUD)
+- [x] Chart statistics of Revenue
+- [x] History of order, weekly, and detail history
+- [x] Authentication with JWT in backend
+- [x] Persist and rehydrate a redux store
+___
+### Requirments
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [Nodejs](https://nodejs.org/en/) v10 LTS version
+* [Npm](https://www.npmjs.com/get-npm) package / [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) package
+___
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Related Projects
+This project is related to several platforms
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Backend [https://github.com/rifkiandriyanto/gayaIn-Backend](https://github.com/rifkiandriyanto/gayaIn-Backend)
+* Mobile App [https://github.com/rifkiandriyanto/gayaIn-frontend-Mobile](https://github.com/rifkiandriyanto/gayaIn-frontend-Mobile)
+___
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### 1. Clone Repo
+clone the repository
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```sh
+$ git clone https://github.com/rifkiandriyanto/gayaIn-Frontend-Web
+$ cd gayaIn-Frontend-Web
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##### Install Depedencies
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+$ npm install
+```
 
-## Learn More
+##### Update Depedencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+$ npm update
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##### Setup Environment
+Before project development or build for production, you should create new .env file, edit REACT_APP_URL variable to backend server. you can found the backend server here.. [https://github.com/rifkiandriyanto/gayain-Backend](https://github.com/rifkiandriyanto/gayain-Backend)
 
-### Code Splitting
+```sh
+REACT_APP_URL=<Backend-api-url>
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+##### npm development
+if you want start on development mode.
 
-### Analyzing the Bundle Size
+```sh
+$ npm start
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+##### Build For Hosting in Server
+build for production ready, and host ready
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```sh
+$ npm run build
+```
+___
 
-### Advanced Configuration
+### Dependencies
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+List of depedencies using in this project
 
-### Deployment
+| Plugin | Description |
+| ------ | ------ |
+| [React](https://facebook.github.io/react-native/) | Web Framework |
+| [Axios](https://github.com/axios/axios) | HTTP client for request API |
+| [Chartjs](https://www.npmjs.com/package/chart.js?activeTab=readme) | Chart Statistic |
+| [Redux](https://redux.js.org) | Global State Management |
+| [Redux Promise Middleware](https://www.npmjs.com/package/redux-promise-middleware) | Promise handler for react redux 
+| [Redux Persist](https://www.npmjs.com/package/redux-persist) | Persist and rehydrate a redux store
+| [Dot Env](https://www.npmjs.com/package/dotenv) | Dot Env
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+License
+----
 
-### `npm run build` fails to minify
+MIT
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+@2020 - gayaIn Team

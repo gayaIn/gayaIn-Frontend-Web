@@ -42,7 +42,7 @@ class NewNavbar extends Component {
   render() {
     const { onClick, onhidden} = this.props;
     const ValidasiForm = () => {
-      if (localStorage.getItem('status') === '1') {
+     
         return (
           <Fragment>
             <li className='nav-item dropdown'>
@@ -76,41 +76,6 @@ class NewNavbar extends Component {
             </li>
           </Fragment>
         );
-      } else {
-        return (
-          <Fragment>
-            <li className='nav-item dropdown'>
-              <Link
-                className='nav-link dropdown-toggle'
-                id='navbarDropdown'
-                role='button'
-                data-toggle='dropdown'
-                aria-haspopup='true'
-                aria-expanded='false'
-              >
-                <i class='fa fa-fw fa-cogs'></i>
-              </Link>
-              <div className='dropdown-menu' aria-labelledby='navbarDropdown'>
-                <span className='dropdown-item'>
-                  <Link to='/Dashboard/Category' className='nav-item nav-link'>
-                    Category
-                  </Link>{' '}
-                </span>
-                <span className='dropdown-item'>
-                  <Link to='/' className='nav-item nav-link'>
-                    Product
-                  </Link>
-                </span>
-                <span className='dropdown-item'>
-                  <Link to='/history' className='nav-item nav-link'>
-                    History
-                  </Link>
-                </span>
-              </div>
-            </li>
-          </Fragment>
-        );
-      }
     };
 
     return (
@@ -185,6 +150,7 @@ class NewNavbar extends Component {
 const mapStateToProps = state => {
   return {
     categorys: state.categorys.categorys,
+    auth: state.auth,
   };
 };
 
