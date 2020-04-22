@@ -58,7 +58,7 @@ class NewNavbar extends Component {
               </Link>
               <div className='dropdown-menu' aria-labelledby='navbarDropdown'>
                 <span className='dropdown-item'>
-                  <Link to='/Dashboard/Category' className='nav-item nav-link'>
+                  <Link to='/Category' className='nav-item nav-link'>
                     Category
                   </Link>{' '}
                 </span>
