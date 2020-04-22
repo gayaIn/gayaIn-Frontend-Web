@@ -1,52 +1,52 @@
 const initialState = {
   products: [],
-  totalPages: []
+  pages: [],
 };
 
 const product = (state = initialState, action) => {
   switch (action.type) {
     case "GET_PRODUCT_PENDING":
       return {
-        ...state
+        ...state,
       };
     case "GET_PRODUCT_REJECTED":
       return {
-        ...state
+        ...state,
       };
     case "GET_PRODUCT_FULFILLED":
       console.log("hai", action.payload.data);
       return {
         ...state,
         products: action.payload.data.result,
-        totalPages: action.payload.data.totalPages
+        pages: action.payload.data.totalPages,
       };
 
     case "POST_PRODUCT_PENDING":
       return {
-        ...state
+        ...state,
       };
     case "POST_PRODUCT_REJECTED":
       return {
-        ...state
+        ...state,
       };
     case "POST_PRODUCT_FULFILLED":
       const newDataProduct = [...state.products, action.payload.data.result];
       return {
         ...state,
-        products: newDataProduct
+        products: newDataProduct,
       };
 
     case "PATCH_PRODUCT_PENDING":
       return {
-        ...state
+        ...state,
       };
     case "PATCH_PRODUCT_REJECTED":
       return {
-        ...state
+        ...state,
       };
     case "PATCH_PRODUCT_FULFILLED":
       console.log(action.payload.data.result);
-      const newEditProduct = state.products.map(product => {
+      const newEditProduct = state.products.map((product) => {
         if (product.id === action.payload.data.result.id) {
           return action.payload.data.result;
         }
@@ -54,39 +54,26 @@ const product = (state = initialState, action) => {
       });
       return {
         ...state,
-        products: newEditProduct
+        products: newEditProduct,
       };
 
     case "DELETE_PRODUCT_PENDING":
       return {
-        ...state
+        ...state,
       };
     case "DELETE_PRODUCT_REJECTED":
       return {
-        ...state
+        ...state,
       };
     case "DELETE_PRODUCT_FULFILLED":
       const newDeleteProduct = state.products.filter(
-        product => product.id !== action.payload.data.result.id
+        (product) => product.id !== action.payload.data.result.id
       );
       return {
         ...state,
-        products: newDeleteProduct
+        products: newDeleteProduct,
       };
 
-    case "FILTER_PRODUCT_PENDING":
-      return {
-        ...state
-      };
-    case "FILTER_PRODUCT_REJECTED":
-      return {
-        ...state
-      };
-    case "FILTER_PRODUCT_FULFILLED":
-      return {
-        ...state,
-        products: action.payload.data.result
-      };
     default:
       return state;
   }

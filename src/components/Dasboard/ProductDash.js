@@ -1,66 +1,72 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { getProducts } from '../redux/actions/product';
-
-import { Container, Row, Button, Table, Col } from 'react-bootstrap';
-import NewNavbar from '../Layout/Navbar';
-import NewModals from '../Product/addModal';
-import EditModals from '../Product/editModal';
-import DeleteModal from '../Product/deleteModal';
-import {logout} from '../redux/actions/auth'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getProducts } from "../redux/actions/product";
+import { Link } from "react-router-dom";
+import { Container, Row, Button, Table, Col } from "react-bootstrap";
+import NewNavbar from "../Layout/Navbar";
+import NewModals from "../Product/addModal";
+import EditModals from "../Product/editModal";
+import DeleteModal from "../Product/deleteModal";
+import { logout } from "../redux/actions/auth";
 
 class ProductDash extends Component {
   state = {
-    idProduct: '',
+    idProduct: "",
     selectProduct: [],
     selectProductDelete: [],
+    activePage: 1,
+    searchName: "",
   };
 
-  onClickHandler = e => {
+  onClickHandler = (e) => {
     console.log(e);
     this.setState({
       idProduct: e,
     });
   };
 
-  convertToRupiah = angka => {
-    var rupiah = '';
-    var angkarev = angka
-      .toString()
-      .split('')
-      .reverse()
-      .join('');
+  changePage = (e) => {
+    this.setState({ activePage: e });
+    const data = {
+      activePage: e,
+      searchName: this.state.searchName,
+    };
+    this.props.dispatch(getProducts(data));
+  };
+
+  convertToRupiah = (angka) => {
+    var rupiah = "";
+    var angkarev = angka.toString().split("").reverse().join("");
     for (var i = 0; i < angkarev.length; i++)
       if (i % 3 === 0) rupiah += angkarev.substr(i, 3) + ".";
     return (
-      'Rp. ' +
+      "Rp. " +
       rupiah
-        .split('', rupiah.length - 1)
+        .split("", rupiah.length - 1)
         .reverse()
-        .join('') +
-      ',-'
+        .join("") +
+      ",-"
     );
   };
 
   getProducts = () => {
-    this.props.dispatch(getProducts());
+    const data = {};
+    this.props.dispatch(getProducts(data));
   };
-  
+
   componentDidMount() {
     if (!this.props.auth.isAuthenticated) {
-     this.props.history.push('/login')
-   }
-   this.getProducts();
- }
+      this.props.history.push("/login");
+    }
+    this.getProducts();
+  }
 
+  onLogout() {
+    this.props.dispatch(logout());
+    this.props.history.push("/login");
+  }
 
- onLogout () {
-  this.props.dispatch(logout())
-  this.props.history.push('/login')
-}
-
-
-  productEdit = product => {
+  productEdit = (product) => {
     this.setState({
       selectProduct: product,
     });
@@ -68,7 +74,7 @@ class ProductDash extends Component {
 
   render() {
     const { products, categorys } = this.props;
-    console.log(this.props)
+    console.log(this.props);
     return (
       <Row style={{ backgroundColor: "#ebebeb" }}>
         <NewNavbar onClick={this.onLogout.bind(this)} onhidden={false} />
@@ -90,17 +96,17 @@ class ProductDash extends Component {
               </Col>
               <Col sm={2}>
                 <Button
-                  type='button'
-                  className=' btn btn-primary btn-outline-light'
-                  data-toggle='modal'
-                  data-target='#exampleModal'
-                  style={{ backgroundColor: '#f1a98c', border: 'transparent' }}
+                  type="button"
+                  className=" btn btn-primary btn-outline-light"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  style={{ backgroundColor: "#f1a98c", border: "transparent" }}
                 >
                   Add
                 </Button>
               </Col>
             </Row>
-            <Table className='mt-3'>
+            <Table className="mt-3">
               <thead>
                 <tr>
                   <th>Image</th>
@@ -118,9 +124,9 @@ class ProductDash extends Component {
                       <img
                         src={product.image}
                         style={{
-                          height: '50px',
-                          width: '50px',
-                          borderRadius: '10px',
+                          height: "50px",
+                          width: "50px",
+                          borderRadius: "10px",
                         }}
                         alt=""
                       />
@@ -131,38 +137,38 @@ class ProductDash extends Component {
                     <td>{product.stock}</td>
                     <td>
                       <Button
-                        className='Button'
+                        className="Button"
                         onClick={() => this.productEdit(product)}
-                        data-toggle='modal'
-                        data-target='#editModal'
-                        variant='danger'
+                        data-toggle="modal"
+                        data-target="#editModal"
+                        variant="danger"
                         value={product.id}
-                        variant='warning'
+                        variant="warning"
                         style={{
-                          backgroundColor: 'transparent',
-                          border: 'transparent',
+                          backgroundColor: "transparent",
+                          border: "transparent",
                         }}
                       >
                         <i
-                          className='fas fa-edit'
-                          style={{ color: '#929394' }}
+                          className="fas fa-edit"
+                          style={{ color: "#929394" }}
                         ></i>
-                      </Button>{' '}
-                      -{' '}
+                      </Button>{" "}
+                      -{" "}
                       <Button
-                        className='Button'
+                        className="Button"
                         onClick={() => this.onClickHandler(product.id)}
-                        data-toggle='modal'
-                        data-target='#deleteModal'
-                        variant='danger'
+                        data-toggle="modal"
+                        data-target="#deleteModal"
+                        variant="danger"
                         style={{
-                          backgroundColor: 'transparent',
-                          border: 'transparent',
+                          backgroundColor: "transparent",
+                          border: "transparent",
                         }}
                       >
                         <i
-                          class='fas fa-trash'
-                          style={{ color: '#929394' }}
+                          class="fas fa-trash"
+                          style={{ color: "#929394" }}
                         ></i>
                       </Button>
                     </td>
@@ -171,16 +177,32 @@ class ProductDash extends Component {
               </tbody>
             </Table>
           </div>
+
+          <nav aria-label="Page navigation example">
+            <ul className="pagination justify-content-center">
+              {this.props.pages.map((page) => (
+                <li
+                  className="page-item"
+                  key={page}
+                  id={page}
+                  onClick={() => this.changePage(page)}
+                >
+                  <Link className="page-link">{page}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </Container>
       </Row>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     categorys: state.categorys.categorys,
     products: state.products.products,
+    pages: state.products.pages,
     auth: state.auth,
   };
 };

@@ -38,9 +38,9 @@ function App() {
       <PersistGate persistor={persistor}>
         <Router>
           <Switch>
+            <Route path="/login" component={Login} />
             <Route exact path="/" component={ProductDash} />
             <Route path="/Category" component={CategoryParent} />
-            <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/user" component={User} />
             <Route path="/history" component={History} />
